@@ -1,5 +1,6 @@
 // Build script for universal-age-gate-bypass
 // Creates versioned releases in versions/ and dist/
+// Updates @downloadURL/@updateURL in dist/ to point to stable dist file
 
 import fs from 'fs';
 import path from 'path';
@@ -15,21 +16,40 @@ const scriptContent = fs.readFileSync(scriptPath, 'utf-8');
 
 const versionsDir = path.join(__dirname, 'versions');
 const distDir = path.join(__dirname, 'dist');
+const REPO = 'universal-age-gate-bypass';
+const OWNER = 'parhamghahremani';
+const BRANCH = 'master';
 
 if (!fs.existsSync(versionsDir)) fs.mkdirSync(versionsDir, { recursive: true });
 if (!fs.existsSync(distDir)) fs.mkdirSync(distDir, { recursive: true });
 
-// Versioned copy in versions/
+// Versioned copy in versions/ (archive only - no URL updates)
 const versionedPath = path.join(versionsDir, `v${version}.user.js`);
 fs.writeFileSync(versionedPath, scriptContent);
+console.log(`Created versioned archive: ${versionedPath}`);
 
-// Copy to dist/ (latest)
+// Copy to dist/ (latest) with updated URLs pointing to stable dist file
 const distPath = path.join(distDir, 'universal-age-gate-bypass.user.js');
-fs.writeFileSync(distPath, scriptContent);
+const stableUrl = `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/dist/universal-age-gate-bypass.user.js`;
 
-console.log(`Built v${version}:`);
-console.log(`  - ${versionedPath}`);
-console.log(`  - ${distPath}`);
+let distContent = scriptContent
+    .replace(
+        /@downloadURL\s+.*/,
+        `@downloadURL  ${stableUrl}`
+    )
+    .replace(
+        /@updateURL\s+.*/,
+        `@updateURL    ${stableUrl}`
+    );
+
+fs.writeFileSync(distPath, distContent);
+console.log(`Created dist file with stable URLs: ${distPath}`);
+console.log(`  URLs: ${stableUrl}`);
+
+console.log(`\nBuild complete! Version: ${version}`);
+console.log(`Files:`);
+console.log(`  - ${versionedPath} (archive)`);
+console.log(`  - ${distPath} (stable update target)`);
 
 // Also create a minified version for dist (optional)
 try {

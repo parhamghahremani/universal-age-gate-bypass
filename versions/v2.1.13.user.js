@@ -1,0 +1,875 @@
+// ==UserScript==
+// @name         Universal Age Gate Auto-Bypass
+// @namespace    https://github.com/parhamghahremani/universal-age-gate-bypass
+// @version      2.1.13
+// @description  Automatically bypass 18+ age verification gates on multiple adult sites + cookie consent — Firefox Desktop + Android
+// @author       parham
+// @match        *://*.pornhub.com/*
+// @match        *://pornhub.com/*
+// @match        *://*.xnxx.com/*
+// @match        *://xnxx.com/*
+// @match        *://*.xvideos.com/*
+// @match        *://xvideos.com/*
+// @match        *://*.xhamster.com/*
+// @match        *://xhamster.com/*
+// @match        *://*.tube8.com/*
+// @match        *://tube8.com/*
+// @exclude      *://*.pornhub.com/admin/*
+// @exclude      *://*.xnxx.com/admin/*
+// @exclude      *://*.xvideos.com/admin/*
+// @exclude      *://*.xhamster.com/admin/*
+// @icon         data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTI4IDEyOCIgd2lkdGg9IjEyOCIgaGVpZ2h0PSIxMjgiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM0YTBhMWUiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMxNDAzMGIiLz48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0ibWFzayIgeDE9IjAiIHkxPSIwIiB4Mj0iMC40IiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNTM1MzZhIi8+PHN0b3Agb2Zmc2V0PSIwLjUiIHN0b3AtY29sb3I9IiMxYTFhMjgiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwNzA3MGUiLz48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0iZ29sZCIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZjFiMCIvPjxzdG9wIG9mZnNldD0iMC41IiBzdG9wLWNvbG9yPSIjZjZiNzNjIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjYTg2NTBhIi8+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9ImYxIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMCI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjYmUxMjNjIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmY1YTdhIi8+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9ImYyIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMCI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZDYyNDdhIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmY5YWQ1Ii8+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9ImYzIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMCI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZDk4MjAwIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZlMDhhIi8+PC9saW5lYXJHcmFkaWVudD48cmFkaWFsR3JhZGllbnQgaWQ9ImlyaXMiIGN4PSIwLjQiIGN5PSIwLjM1IiByPSIwLjciPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZjNjNCIvPjxzdG9wIG9mZnNldD0iMC41IiBzdG9wLWNvbG9yPSIjZmY1ZmEyIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjOWQxNzRkIi8+PC9yYWRpYWxHcmFkaWVudD48cmFkaWFsR3JhZGllbnQgaWQ9InJ1YnkiIGN4PSIwLjM1IiBjeT0iMC4zIiByPSIwLjgiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmYjNjMSIvPjxzdG9wIG9mZnNldD0iMC41IiBzdG9wLWNvbG9yPSIjZTExZDQ4Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjN2EwNjI2Ii8+PC9yYWRpYWxHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9ImVkZ2UiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmQyN2EiLz48c3RvcCBvZmZzZXQ9IjAuNSIgc3RvcC1jb2xvcj0iI2ZmNWE3YSIgc3RvcC1vcGFjaXR5PSIwLjgiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNhODU1ZjciLz48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0ic2hpbmUiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIwIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmYiIHN0b3Atb3BhY2l0eT0iMCIvPjxzdG9wIG9mZnNldD0iMC41IiBzdG9wLWNvbG9yPSIjZmZmIiBzdG9wLW9wYWNpdHk9IjAuMTQiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmZmYiIHN0b3Atb3BhY2l0eT0iMCIvPjwvbGluZWFyR3JhZGllbnQ+PGZpbHRlciBpZD0iYmx1ciIgeD0iLTMwJSIgeT0iLTMwJSIgd2lkdGg9IjE2MCUiIGhlaWdodD0iMTYwJSI+PGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMy41Ii8+PC9maWx0ZXI+PGZpbHRlciBpZD0iYmx1cjEwIiB4PSItNjAlIiB5PSItNjAlIiB3aWR0aD0iMjIwJSIgaGVpZ2h0PSIyMjAlIj48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxMCIvPjwvZmlsdGVyPjxmaWx0ZXIgaWQ9Imdsb3ciIHg9Ii00MCUiIHk9Ii00MCUiIHdpZHRoPSIxODAlIiBoZWlnaHQ9IjE4MCUiPjxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjEuNCIgcmVzdWx0PSJiIi8+PGZlTWVyZ2U+PGZlTWVyZ2VOb2RlIGluPSJiIi8+PGZlTWVyZ2VOb2RlIGluPSJTb3VyY2VHcmFwaGljIi8+PC9mZU1lcmdlPjwvZmlsdGVyPjxjbGlwUGF0aCBpZD0iY2xpcCI+PHJlY3QgeD0iOCIgeT0iOCIgd2lkdGg9IjExMiIgaGVpZ2h0PSIxMTIiIHJ4PSIzMiIvPjwvY2xpcFBhdGg+PHBhdGggaWQ9InN0YXIiIGQ9Ik0wIC02IEwxLjYgLTEuNiBMNiAwIEwxLjYgMS42IEwwIDYgTC0xLjYgMS42IEwtNiAwIEwtMS42IC0xLjYgWiIvPjxwYXRoIGlkPSJtYXNrc2hhcGUiIGQ9Ik02NCA1NCBDNTggNDYgNDQgMzggMjggNDIgQzE2IDQ2IDEwIDU4IDEyIDY4IEMxNCA4MCAyOCA4NiA0MCA4MiBDNTAgNzkgNTYgNzAgNjQgNzAgQzcyIDcwIDc4IDc5IDg4IDgyIEMxMDAgODYgMTE0IDgwIDExNiA2OCBDMTE4IDU4IDExMiA0NiAxMDAgNDIgQzg0IDM4IDcwIDQ2IDY0IDU0IFoiLz48cGF0aCBpZD0iZXllTCIgZD0iTTI0IDYyIFEzOCA1MCA1MiA2MiBRMzggNzQgMjQgNjIgWiIvPjxwYXRoIGlkPSJleWVSIiBkPSJNNzYgNjIgUTkwIDUwIDEwNCA2MiBROTAgNzQgNzYgNjIgWiIvPjwvZGVmcz48ZWxsaXBzZSBjeD0iNjQiIGN5PSIxMjIiIHJ4PSIzOCIgcnk9IjQuNSIgZmlsbD0iIzAwMCIgb3BhY2l0eT0iMC41NSIgZmlsdGVyPSJ1cmwoI2JsdXIpIi8+PHJlY3QgeD0iOCIgeT0iOCIgd2lkdGg9IjExMiIgaGVpZ2h0PSIxMTIiIHJ4PSIzMiIgZmlsbD0idXJsKCNiZykiLz48ZyBjbGlwLXBhdGg9InVybCgjY2xpcCkiPjxjaXJjbGUgY3g9IjY0IiBjeT0iNjYiIHI9IjQwIiBmaWxsPSIjZTExZDQ4IiBvcGFjaXR5PSIwLjUiIGZpbHRlcj0idXJsKCNibHVyMTApIi8+PGNpcmNsZSBjeD0iMTA4IiBjeT0iMTA4IiByPSIyOCIgZmlsbD0iI2E4NTVmNyIgb3BhY2l0eT0iMC40IiBmaWx0ZXI9InVybCgjYmx1cjEwKSIvPjxjaXJjbGUgY3g9IjE2IiBjeT0iMTgiIHI9IjI0IiBmaWxsPSIjZjU5ZTBiIiBvcGFjaXR5PSIwLjMiIGZpbHRlcj0idXJsKCNibHVyMTApIi8+PHBvbHlnb24gcG9pbnRzPSItMTAsMTAwIDcwLC0xMCAxMDAsLTEwIDIwLDExMCIgZmlsbD0idXJsKCNzaGluZSkiLz48L2c+PHJlY3QgeD0iOSIgeT0iOSIgd2lkdGg9IjExMCIgaGVpZ2h0PSIxMTAiIHJ4PSIzMSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ1cmwoI2VkZ2UpIiBzdHJva2Utd2lkdGg9IjIiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5NiA0MikiPjxnIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PGVsbGlwc2UgY3g9IjE1IiBjeT0iMCIgcng9IjE1IiByeT0iNS40IiBmaWxsPSJ1cmwoI2YxKSIgdHJhbnNmb3JtPSJyb3RhdGUoLTcwKSIvPjxlbGxpcHNlIGN4PSIxMyIgY3k9IjAiIHJ4PSIxMyIgcnk9IjUiIGZpbGw9InVybCgjZjIpIiB0cmFuc2Zvcm09InJvdGF0ZSgtNDUpIi8+PGVsbGlwc2UgY3g9IjExIiBjeT0iMCIgcng9IjExIiByeT0iNC42IiBmaWxsPSJ1cmwoI2YzKSIgdHJhbnNmb3JtPSJyb3RhdGUoLTIwKSIvPjxwYXRoIGQ9Ik0wIDAgTDMwIDAiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLW9wYWNpdHk9IjAuNTUiIHN0cm9rZS13aWR0aD0iMC45IiB0cmFuc2Zvcm09InJvdGF0ZSgtNzApIi8+PHBhdGggZD0iTTAgMCBMMjYgMCIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utb3BhY2l0eT0iMC41NSIgc3Ryb2tlLXdpZHRoPSIwLjkiIHRyYW5zZm9ybT0icm90YXRlKC00NSkiLz48cGF0aCBkPSJNMCAwIEwyMiAwIiBzdHJva2U9IiNmZmYiIHN0cm9rZS1vcGFjaXR5PSIwLjU1IiBzdHJva2Utd2lkdGg9IjAuOSIgdHJhbnNmb3JtPSJyb3RhdGUoLTIwKSIvPjwvZz48L2c+PHVzZSB4bGluazpocmVmPSIjbWFza3NoYXBlIiBocmVmPSIjbWFza3NoYXBlIiBmaWxsPSIjMDAwIiBvcGFjaXR5PSIwLjU1IiB0cmFuc2xhdGUoMCA0KSIvPjx1c2UgeGxpbms6aHJlZj0iI21hc2tzaGFwZSIgaHJlZj0iI21hc2tzaGFwZSIgZmlsbD0idXJsKCNiYWskIiBzdHJva2U9InVybCgjZ29sZCkiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0zMCA0NiBDNDIgNDIgNTQgNDggNjAgNTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLW9wYWNpdHk9IjAuMjIiIHN0cm9rZS13aWR0aD0iMi40IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48dXNlIHhsaW5rOmhyZWY9IiNleWVMIiBocmVmPSIjZXllTCIgZmlsbD0iIzBiMDIwNiIgc3Ryb2tlPSJ1cmwoI2dvbGQpIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48dXNlIHhsaW5rOmhyZWY9IiNleWVSIiBocmVmPSIjZXllUiIgZmlsbD0iIzBiMDIwNiIgc3Ryb2tlPSJ1cmwoI2dvbGQpIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48Y2lyY2NsZSBjeD0iMzgiIGN5PSI2MiIgcj0iNS4yIiBmaWxsPSJ1cmwoI2lyaXMiKSBmaWx0ZXI9InVybCgjZ2xvdyIvPjxjaXJjbGUgY3g9IjkwIiBjeT0iNjIiIHI9IjUuMiIgZmlsbD0idXJsKCNpcmlzKSIgZmlsdGVyPSJ1cmwoI2dsb3cpIi8+PGNpcmNsZSBjeD0iMzgiIGN5PSI2MiIgcj0iMi4xIiBmaWxsPSIjMWEwNTEwIi8+PGNpcmNsZSBjeD0iOTAiIGN5PSI2MiIgcj0iMi4xIiBmaWxsPSIjMWEwNTEwIi8+PGNpcmNsZSBjeD0iMzYuNCIgY3k9IjYwLjQiIHI9IjEuMiIgZmlsbD0iI2ZmZiIvPjxjaXJjbGUgY3g9Ijg4LjQiIGN5PSI2MC40IiByPSIxLjIiIGZpbGw9IiNmZmYiLz48ZyBmaWxsPSJub25lIiBzdHJva2U9InVybCgjZ29sZCkiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiPjxwYXRoIGQ9Ik0yMiA1MiBDMzAgNDIgNDQgNDIgNTAgNTIiLz48cGF0aCBkPSJNMTA2IDUyIEM5OCA0MiA4NCA0MiA3OCA1MiIvPjxwYXRoIGQ9Ik0yMCA3NCBDMjYgODAgMzQgODIgNDAgNzgiLz48cGF0aCBkPSJNMTA4IDc0IEMxMDIgODAgOTQgODIgODggNzgiLz48L2c+PGcgZmlsbD0iI2ZmZTA4YSI+PGNpcmNsZSBjeD0iMTUiIGN5PSI2MiIgcj0iMS41Ii8+PGNpcmNsZSBjeD0iMTciIGN5PSI3MCIgcj0iMS41Ii8+PGNpcmNsZSBjeD0iMjQiIGN5PSI3OCIgcj0iMS40Ii8+PGNpcmNsZSBjeD0iMTEzIiBjeT0iNjIiIHI9IjEuNSIvPjxjaXJjbGUgY3g9IjExMSIgY3k9IjcwIiByPSIxLjUiLz48Y2lyY2NsZSBjeD0iMTA0IiBjeT0iNzgiIHI9IjEuNCIvPjwvZz48Y2lyY2NsZSBjeD0iNjQiIGN5PSI2MCIgcj0iNi40IiBmaWxsPSJ1cmwoI2dvbGQpIi8+PGNpcmNsZSBjeD0iNjQiIGN5PSI2MCIgcj0iNC42IiBmaWxsPSJ1cmwoI3J1YnkpIiBmaWx0ZXI9InVybCgjZ2xvdyIvPjxjaXJjbGUgY3g9IjYyLjQiIGN5PSI1OC40IiByPSIxLjQiIGZpbGw9IiNmZmYiIG9wYWNpdHk9IjAuOSIvPjx1c2UgeGxpbms6aHJlZj0iI3N0YXIiIGhyZWY9IiNzdGFyIiBmaWxsPSIjZmZmIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMCAyOCkgc2NhbGUoMS4zKSIvPjx1c2UgeGxpbms6aHJlZj0iI3N0YXIiIGhyZWY9IiNzdGFyIiBmaWxsPSIjZmZlMDhhIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMDYgMTAwKSBzY2FsZSgxKSIvPjx1c2UgeGxpbms6aHJlZj0iI3N0YXIiIGhyZWY9IiNzdGFyIiBmaWxsPSIjZmZkMWVjIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMCAxMDQpIHNjYWxlKDAuOSkiLz48Y2lyY2NsZSBjeD0iNjYiIGN5PSIxMDAiIHI9IjEuOCIgZmlsbD0iI2ZmOWFkNSIvPjwvc3ZnPg==
+// @grant        none
+// @run-at       document-start
+// @downloadURL  https://github.com/parhamghahremani/universal-age-gate-bypass/raw/main/universal-age-gate-bypass.user.js
+// @updateURL    https://github.com/parhamghahremani/universal-age-gate-bypass/raw/main/universal-age-gate-bypass.user.js
+// @supportURL   https://github.com/parhamghahremani/universal-age-gate-bypass/issues
+// @homepageURL  https://github.com/parhamghahremani/universal-age-gate-bypass
+// @license      MIT
+// ==/UserScript==
+
+(function () {
+    'use strict';
+
+    // ============================================================================
+    // SITE CONFIGURATIONS (v2.1.4 simplicity + v2.1.8 precision selectors)
+    // ============================================================================
+
+    const SITE_CONFIGS = {
+        'pornhub.com': {
+            name: 'Pornhub',
+            primarySelectors: [
+                // Pornhub-specific: data-label & GTM classes (highest priority, geo-independent)
+                // Comprehensive A/B test coverage with wildcards
+                'button[data-label="over18_enter"]',
+                'button[data-label="age_gate_enter"]',
+                'button[data-label*="over18" i]',
+                'button[data-label*="age_gate" i]',
+                'button[data-label*="18" i]',
+                '.js-av-cta.buttonOver18',
+                '.gtm-event-age-verification.js-closeAgeModal',
+                '.ageDisclaimerButtons .buttonOver18',
+                'button.gtm-event-age-verification[data-label="over18_enter"]',
+                'button.gtm-event-age-verification',
+                // Generic fallbacks
+                'button[data-agegate="confirm"]',
+                'button.age-gate-btn',
+                'button.ageGateConfirm',
+                'button[aria-label*="18" i]',
+                'button[aria-label*="age" i]',
+                'button[aria-label*="enter" i]',
+                '.age-gate button',
+                '.ageGate button',
+                '#age-gate button',
+                '#ageGate button',
+                '[class*="agegate"] button',
+                '[class*="age-gate"] button',
+                '[id*="agegate"] button',
+                '[id*="age-gate"] button',
+            ],
+            overlaySelectors: [
+                '.age-gate',
+                '.ageGate',
+                '#age-gate',
+                '#ageGate',
+                '.age-verification',
+                '.ageVerification',
+                '[class*="agegate"]',
+                '[class*="age-gate"]',
+                '[id*="agegate"]',
+                '[id*="age-gate"]',
+                '.modal-backdrop',
+                '.overlay',
+                '[style*="z-index: 9999"]',
+            ],
+            spaPaths: ['/video/', '/categories/', '/channels/', '/pornstars/', '/gifs/'],
+            timings: {
+                retryInterval: 30,
+                maxRetries: 30,
+                initialDelay: 0,
+                overlayCleanupDelay: 0,
+                spaNavDelay: 50,
+            },
+        },
+
+        'xnxx.com': {
+            name: 'XNXX',
+            primarySelectors: [
+                // Homepage: disclaimer/cookie consent overlay (highest priority)
+                '#disclaimer-accept_cookies-btn',
+                '#disclaimer_message .btn-primary',
+                '#disclaimer-top-close-btn',
+                '.disclaimer-enter-btns .btn-select',
+                '#disclaimer-reject_cookies-btn',
+                '.disclaimer-manage_cookies',
+                // Age gate (first overlay): .disclaimer-enter button "I am 18+ - Enter Site"
+                'button.disclaimer-enter',
+                '.disclaimer-buttons .disclaimer-enter',
+                '.disclaimer-enter',
+                // Generic age gate fallbacks (video pages may not have disclaimer)
+                'button.btn-accept',
+                'button.btn-primary[data-age="18"]',
+                'button[onclick*="ageCheck"]',
+                '.age-gate button',
+                '.agegate button',
+                '#age-gate button',
+                '#agegate button',
+                'a[href*="age_verified"]',
+                'button[class*="age"]',
+                '.modal button',
+                '[class*="age-gate"] button',
+                '[class*="agegate"] button',
+                '.disclaimer-background button',
+                '#disclaimer button',
+            ],
+            overlaySelectors: [
+                // Homepage disclaimer overlay (fixed, covers viewport, z-index 80000)
+                '#disclaimer_background',
+                '#disclaimer_message',
+                '.disclaimer-opened',
+                // Generic age gate overlays
+                '.age-gate',
+                '.agegate',
+                '#age-gate',
+                '#agegate',
+                '.age-verification',
+                '.modal-backdrop',
+                '.overlay',
+                '[class*="agegate"]',
+                '[class*="age-gate"]',
+                '[style*="z-index: 9999"]',
+                '#disclaimer',
+            ],
+            spaPaths: ['/video-', '/category-', '/channels/', '/pornstar-'],
+            timings: {
+                retryInterval: 50,
+                maxRetries: 50,
+                initialDelay: 50,
+                overlayCleanupDelay: 50,
+                spaNavDelay: 50,
+            },
+        },
+
+        'xvideos.com': {
+            name: 'XVideos',
+            primarySelectors: [
+                '#disclaimer-accept_cookies-btn',
+                'button.btn-accept',
+                'button.agree-btn',
+                'button[data-testid="age-gate-confirm"]',
+                '.age-gate button',
+                '#age_verify button',
+                '.age_verification button',
+                '[class*="agegate"] button',
+                '[class*="age-gate"] button',
+                'a[href*="age_verified"]',
+                'button[class*="accept"]',
+                '.disclaimer-background button',
+                '#disclaimer button',
+            ],
+            overlaySelectors: [
+                '.age-gate',
+                '#age_verify',
+                '.age_verification',
+                '[class*="agegate"]',
+                '[class*="age-gate"]',
+                '.modal-backdrop',
+                '.overlay',
+                '[style*="z-index: 9999"]',
+                '#disclaimer_background',
+                '#disclaimer',
+            ],
+            spaPaths: ['/video', '/channels/', '/tags/', '/pornstars/'],
+            timings: {
+                retryInterval: 80,
+                maxRetries: 60,
+                initialDelay: 100,
+                overlayCleanupDelay: 50,
+                spaNavDelay: 100,
+            },
+        },
+
+        'xhamster.com': {
+            name: 'xHamster',
+            primarySelectors: [
+                // Cookie consent modal (React/CSS Modules) - highest priority, appears first
+                'button.experimentalButton-5822e',
+                'div[data-opt-hydration="cookies-dialog-eu"] button.experimentalButton-5822e',
+                'div.wrapper-5822e.overAv-5822e button.experimentalButton-5822e',
+                // Age gate (if separate from cookie consent)
+                'button[data-testid="age-gate-confirm"]',
+                'button.age-gate-btn',
+                'button.btn-accept',
+                '.age-gate button',
+                '#age-gate button',
+                '[class*="agegate"] button',
+                '[class*="age-gate"] button',
+                'a[href*="age_verified"]',
+                'button[aria-label*="18" i]',
+                'button[aria-label*="enter" i]',
+            ],
+            overlaySelectors: [
+                '.age-gate',
+                '#age-gate',
+                '.age-verification',
+                '[class*="agegate"]',
+                '[class*="age-gate"]',
+                '.modal-backdrop',
+                '.overlay',
+                '[style*="z-index: 9999"]',
+                'div.wrapper-5822e.overAv-5822e',
+                'div[data-opt-hydration="cookies-dialog-eu"]',
+            ],
+            spaPaths: ['/videos/', '/channels/', '/categories/', '/pornstars/'],
+            timings: {
+                retryInterval: 80,
+                maxRetries: 60,
+                initialDelay: 100,
+                overlayCleanupDelay: 50,
+                spaNavDelay: 50,
+            },
+        },
+
+        'tube8.com': {
+            name: 'Tube8',
+            primarySelectors: [
+                // Tube8 Age Gate (homepage/entry) - HIGHEST PRIORITY
+                '#accessButton.gtm-event-avmodal[data-label="enter"]',
+                'button#accessButton.button.button-pink.gtm-event-avmodal[data-label="enter"]',
+                'button.gtm-event-avmodal[data-label="enter"]',
+                '#accessButton[data-plw="plw_disclaimer_accept"]',
+                // Tube8 Cookie Consent (GTM banner) - second priority
+                '#consent_accept_all.gtm-event-cookie-banner',
+                'button#consent_accept_all[data-label="accept_all"]',
+                'button.gtm-event-cookie-banner[data-label="accept_all"]',
+                'button#consent_accept_essential[data-label="accept_essential"]',
+                'button.gtm-event-cookie-banner[data-label="accept_essential"]',
+                // Generic age gate fallbacks (if separate age gate appears on video pages)
+                'button[data-agegate="confirm"]',
+                'button.age-gate-btn',
+                'button.btn-accept',
+                '.age-gate button',
+                '.ageGate button',
+                '#age-gate button',
+                '[class*="agegate"] button',
+                '[class*="age-gate"] button',
+                'a[href*="age_verified"]',
+            ],
+            overlaySelectors: [
+                // Tube8 Age Gate overlays
+                '#ageDisclaimerMainBG',
+                '#ageDisclaimerWrapper',
+                'html.showAgeDisclaimer',
+                // Tube8 Cookie Consent overlays
+                '#cookie_banner_overlay',
+                '#cookie_consent_wrapper',
+                // Generic
+                '.age-gate',
+                '.ageGate',
+                '#age-gate',
+                '.age-verification',
+                '[class*="agegate"]',
+                '[class*="age-gate"]',
+                '.modal-backdrop',
+                '.overlay',
+                '[style*="z-index: 9999"]',
+            ],
+            spaPaths: ['/video/', '/categories/', '/channels/', '/pornstars/'],
+            timings: {
+                retryInterval: 50,
+                maxRetries: 50,
+                initialDelay: 50,
+                overlayCleanupDelay: 50,
+                spaNavDelay: 50,
+            },
+        },
+    };
+
+    // ============================================================================
+    // GLOBAL COOKIE CONSENT SELECTORS (Cross-site)
+    // ============================================================================
+
+    const COOKIE_CONSENT_SELECTORS = [
+        // Tube8-specific: GTM cookie banner (highest priority for Tube8)
+        '#consent_accept_all.gtm-event-cookie-banner',
+        'button#consent_accept_all[data-label="accept_all"]',
+        'button.gtm-event-cookie-banner[data-label="accept_all"]',
+        'button#consent_accept_essential[data-label="accept_essential"]',
+        'button.gtm-event-cookie-banner[data-label="accept_essential"]',
+        // Pornhub-specific: "Accept all cookies" variant (highest priority)
+        '.cbPrimaryCTA.gtm-event-cookie-banner',
+        'button[data-label="accept_all"]',
+        'button.cbButton[data-event="cookie_banner"][data-label="accept_all"]',
+        // Pornhub-specific: "Ok" button variant (high priority)
+        '.js-acceptGlobalCookies',
+        // xHamster-specific: experimentalButton-5822e (cookie dialog)
+        'button.experimentalButton-5822e',
+        'div[data-opt-hydration="cookies-dialog-eu"] button.experimentalButton-5822e',
+        // SpankBang-specific (kept for reference, site removed but selectors may match others)
+        'button[data-testid="accept-all-cookies"]',
+        // Generic fallbacks
+        'button[id*="accept"]',
+        'button[class*="accept"]',
+        'button[id*="consent"]',
+        'button[class*="consent"]',
+        'button[id*="agree"]',
+        'button[class*="agree"]',
+        'button[aria-label*="accept" i]',
+        'button[aria-label*="agree" i]',
+        'button[aria-label*="consent" i]',
+        'a[href*="consent"]',
+        'a[href*="accept"]',
+        '[data-testid*="accept"]',
+        '[data-testid*="consent"]',
+        '[data-testid*="agree"]',
+        'button[class*="cookie"]',
+        'button[id*="cookie"]',
+    ];
+
+    // ============================================================================
+    // MULTI-LANGUAGE TEXT PATTERNS (EN + FA only)
+    // ============================================================================
+
+    const TEXT_PATTERNS = {
+        ageGate: {
+            en: [
+                /i am 18/i,
+                /i am over 18/i,
+                /^enter$/i,
+                /^continue$/i,
+                /^yes$/i,
+                /^accept$/i,
+                /^confirm$/i,
+                /^agree$/i,
+                /verify age/i,
+                /confirm age/i,
+            ],
+            fa: [
+                /ثبت/i,
+                /ورود/i,
+                /تایید/i,
+                /بالاتر از ۱۸/i,
+                /۱۸\s*سال/i,
+                /پذیرفتن/i,
+                /تایید\s+سن/i,
+            ],
+        },
+        cookieConsent: {
+            en: [
+                /^(?:accept all|accept all cookies|allow all|allow all cookies)$/i,
+                /^(?:accept|agree|consent|allow|i agree|got it|ok)$/i,
+            ],
+            fa: [
+                /^(?:قبول\s+همه|پذیرش\s+همه|موافقت\s+با\s+همه)$/i,
+                /^(?:قبول|پذیرش|موافق|تأیید|باشه|اوکی)$/i,
+            ],
+        },
+        // Extended cookie consent patterns for geo-variants
+        cookieConsentExtended: {
+            en: [
+                /accept all cookies/i,
+                /accept only essential/i,
+                /allow all/i,
+                /agree to all/i,
+                /consent to all/i,
+            ],
+        },
+        // XNXX-specific text patterns (homepage disclaimer/cookie consent)
+        xnxxDisclaimer: {
+            en: [
+                /^enter and accept all cookies$/i,
+                /^reject all cookies$/i,
+                /^manage cookies$/i,
+                /^straight$/i,
+                /^gay$/i,
+                /^trans$/i,
+            ],
+            fa: [
+                /^ورود و پذیرش همه کوکی/i,
+                /^رد همه کوکی/i,
+                /^مدیریت کوکی/i,
+                /^مستقیم$/i,
+                /^گِی/i,
+                /^ترنس/i,
+            ],
+        },
+    };
+
+    function detectPageLanguage() {
+        const htmlLang =
+            document.documentElement.lang || document.documentElement.getAttribute('lang');
+        if (htmlLang) return htmlLang.split('-')[0].toLowerCase();
+
+        const metaLang = document.querySelector(
+            'meta[http-equiv="content-language"], meta[name="language"]'
+        );
+        if (metaLang) return metaLang.getAttribute('content').split('-')[0].toLowerCase();
+
+        const bodyText = (document.body.innerText || '').toLowerCase();
+        const langScores = { en: 0, fa: 0 };
+        for (const pattern of TEXT_PATTERNS.ageGate.en) {
+            if (pattern.test(bodyText)) langScores.en++;
+        }
+        for (const pattern of TEXT_PATTERNS.ageGate.fa) {
+            if (pattern.test(bodyText)) langScores.fa++;
+        }
+        return langScores.fa > langScores.en ? 'fa' : 'en';
+    }
+
+    function getPatternsForType(type) {
+        const lang = detectPageLanguage();
+        const patterns = TEXT_PATTERNS[type]?.[lang] || TEXT_PATTERNS[type]?.en || [];
+        const enPatterns = TEXT_PATTERNS[type]?.en || [];
+        const extended =
+            (type === 'cookieConsent' && TEXT_PATTERNS.cookieConsentExtended?.en) || [];
+        const xnxxPatterns =
+            (type === 'cookieConsent' && CURRENT_DOMAIN === 'xnxx.com' && TEXT_PATTERNS.xnxxDisclaimer?.[lang]) ||
+            (type === 'cookieConsent' && CURRENT_DOMAIN === 'xnxx.com' && TEXT_PATTERNS.xnxxDisclaimer?.en) ||
+            [];
+        return [...new Set([...patterns, ...enPatterns, ...extended, ...xnxxPatterns])];
+    }
+
+    // ============================================================================
+    // DETECT CURRENT SITE
+    // ============================================================================
+
+    function detectSite() {
+        const hostname = location.hostname.replace(/^www\./, '');
+        for (const [domain, config] of Object.entries(SITE_CONFIGS)) {
+            if (hostname === domain || hostname.endsWith('.' + domain)) {
+                return { domain, config };
+            }
+        }
+        return { domain: null, config: null };
+    }
+
+    const { domain: CURRENT_DOMAIN, config: SITE_CONFIG } = detectSite();
+
+    if (!SITE_CONFIG) {
+        console.log('[UniversalAgeGate] No config for:', location.hostname);
+        return;
+    }
+
+    // ============================================================================
+    // GLOBAL CONFIG (v2.1.4 simplicity)
+    // ============================================================================
+
+    const DEFAULT_TIMINGS = {
+        retryInterval: 50,
+        maxRetries: 50,
+        initialDelay: 0,
+        overlayCleanupDelay: 0,
+        spaNavDelay: 0,
+    };
+
+    // ============================================================================
+    // PORNHUB-SPECIFIC ENHANCEMENTS (v2.1.10)
+    // ============================================================================
+
+    // Smart conditional cookie pre-setting at document-start (no DOM manipulation)
+    function preSetPornhubCookies() {
+        if (CURRENT_DOMAIN !== 'pornhub.com') return;
+        const pathname = location.pathname;
+        // Only on video pages and only if cookies not already set
+        if (pathname.startsWith('/video/') || pathname.startsWith('/embed/')) {
+            const hasAgeVerified = document.cookie.includes('age_verified=1');
+            const hasCookieConsent = document.cookie.includes('cookieConsent=1');
+            if (!hasAgeVerified) {
+                document.cookie =
+                    'age_verified=1; path=/; domain=.pornhub.com; Secure; SameSite=Lax';
+                log('Pre-set age_verified cookie');
+            }
+            if (!hasCookieConsent) {
+                document.cookie =
+                    'cookieConsent=1; path=/; domain=.pornhub.com; Secure; SameSite=Lax';
+                log('Pre-set cookieConsent cookie');
+            }
+        }
+    }
+
+    // Page-type detection for targeted selectors
+    function getPornhubPageType() {
+        if (CURRENT_DOMAIN !== 'pornhub.com') return 'unknown';
+        const p = location.pathname;
+        if (p.startsWith('/video/') || p.startsWith('/embed/')) return 'video';
+        if (p.startsWith('/category') || p.startsWith('/categories')) return 'category';
+        if (p.startsWith('/channel') || p.startsWith('/channels')) return 'channel';
+        if (p.startsWith('/pornstar') || p.startsWith('/pornstars')) return 'pornstar';
+        if (p.startsWith('/search') || p.includes('search')) return 'search';
+        if (p.startsWith('/gif') || p.startsWith('/gifs')) return 'gif';
+        return 'other';
+    }
+
+    // XNXX-specific: detect homepage (has disclaimer) vs video page (no disclaimer)
+    function getXnxxPageType() {
+        if (CURRENT_DOMAIN !== 'xnxx.com') return 'unknown';
+        const hasDisclaimerOpened = document.documentElement.classList.contains('disclaimer-opened');
+        const hasDisclaimerBg = !!document.getElementById('disclaimer_background');
+        if (hasDisclaimerOpened || hasDisclaimerBg) return 'homepage';
+        // Video pages: /video-<id>/<title> format
+        if (location.pathname.match(/^\/video-[\w]+/)) return 'video';
+        return 'other';
+    }
+
+    // XNXX-specific: conditional cookie pre-setting for video pages
+    function preSetXnxxCookies() {
+        if (CURRENT_DOMAIN !== 'xnxx.com') return;
+        // Video pages don't show disclaimer - cookies may already be set from homepage
+        // This ensures they're set for direct video links
+        if (CONFIG.xnxxPageType === 'video') {
+            // XNXX uses different cookie names - check common ones
+            const hasConsent = document.cookie.includes('disclaimer=2') ||
+                               document.cookie.includes('age_verified=1') ||
+                               document.cookie.includes('cookieConsent=1');
+            if (!hasConsent) {
+                // Set common XNXX consent cookies
+                document.cookie = 'disclaimer=2; path=/; domain=.xnxx.com; Secure; SameSite=Lax';
+                document.cookie = 'age_verified=1; path=/; domain=.xnxx.com; Secure; SameSite=Lax';
+                log('Pre-set XNXX video page cookies');
+            }
+        }
+    }
+
+    const CONFIG = {
+        ...SITE_CONFIG,
+        timings: { ...DEFAULT_TIMINGS, ...SITE_CONFIG.timings },
+        debug: false,
+        logPrefix: `[UniversalAgeGate:${SITE_CONFIG.name}]`,
+        pageType: getPornhubPageType(),
+        xnxxPageType: getXnxxPageType(),
+    };
+
+    // ============================================================================
+    // UTILITIES
+    // ============================================================================
+
+    const log = (...args) => CONFIG.debug && console.log(CONFIG.logPrefix, ...args);
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+    // Smart visibility: rejects sf-hidden, display:none, visibility:hidden
+    const isVisible = (el) =>
+        el &&
+        el.offsetParent !== null &&
+        !el.classList.contains('sf-hidden') &&
+        getComputedStyle(el).display !== 'none' &&
+        getComputedStyle(el).visibility !== 'hidden';
+
+    // Check if overlay is premium/signup/upsell (should NOT be removed)
+    const isPremiumOverlay = (el) => {
+        const text = (el.textContent || '').toLowerCase();
+        const premiumKeywords = [
+            'premium',
+            'upgrade',
+            'signup',
+            'sign up',
+            'register',
+            'create account',
+            'join now',
+            'get premium',
+            'go premium',
+            'vip',
+            'membership',
+            'subscribe',
+            'subscription',
+        ];
+        return premiumKeywords.some((kw) => text.includes(kw));
+    };
+
+    // Generic button candidates (buttons, links with button role, inputs)
+    const BUTTON_CANDIDATES =
+        'button, [role="button"], a.btn, .btn, input[type="button"], input[type="submit"], a[href*="age_verified"], a.removeAdLink.gtm-event-avmodal, a#btn_agree, a.gtm-event-avmodal';
+
+    // ============================================================================
+    // CORE LOGICS
+    // ============================================================================
+
+    function clickAgeGateButton() {
+        // Phase 1: Site-specific primary selectors (fastest, most reliable)
+        for (const sel of CONFIG.primarySelectors) {
+            try {
+                const btn = document.querySelector(sel);
+                if (isVisible(btn)) {
+                    btn.click();
+                    log('Clicked age gate via primary selector:', sel);
+                    return true;
+                }
+            } catch {}
+        }
+
+        // Phase 2: Text-based fallback on visible button-like elements
+        const candidates = document.querySelectorAll(BUTTON_CANDIDATES);
+        const patterns = getPatternsForType('ageGate');
+
+        for (const btn of candidates) {
+            if (!isVisible(btn)) continue;
+            const text = (btn.textContent || btn.innerText || btn.value || '').trim();
+            if (!text) continue;
+            if (patterns.some((rx) => rx.test(text))) {
+                btn.click();
+                log('Clicked age gate via text match:', text);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function clickCookieConsent() {
+        // Phase 1: Cookie consent specific selectors
+        for (const sel of COOKIE_CONSENT_SELECTORS) {
+            try {
+                const btn = document.querySelector(sel);
+                if (isVisible(btn)) {
+                    btn.click();
+                    log('Clicked cookie consent via selector:', sel);
+                    return true;
+                }
+            } catch {}
+        }
+
+        // Phase 2: Text-based fallback (with extended patterns for geo-variants)
+        const candidates = document.querySelectorAll(BUTTON_CANDIDATES);
+        const patterns = getPatternsForType('cookieConsent');
+
+        for (const btn of candidates) {
+            if (!isVisible(btn)) continue;
+            const text = (btn.textContent || btn.innerText || btn.value || '').trim();
+            if (!text) continue;
+            if (patterns.some((rx) => rx.test(text))) {
+                btn.click();
+                log('Clicked cookie consent via text match:', text);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function removeOverlays() {
+        let removed = false;
+        for (const sel of CONFIG.overlaySelectors) {
+            try {
+                const elements = document.querySelectorAll(sel);
+                elements.forEach((el) => {
+                    if (isVisible(el) && isBlockingOverlay(el)) {
+                        el.remove();
+                        log('Removed overlay:', el.className || el.id || sel);
+                        removed = true;
+                    }
+                });
+            } catch {}
+        }
+
+        if (removed || document.body.style.overflow === 'hidden') {
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+            log('Restored page scroll');
+        }
+        return removed;
+    }
+
+    // Heuristic: is this element a full-screen blocking overlay? (v2.1.4 non-strict)
+    // v2.1.10: Skip premium/signup/upsell overlays
+    function isBlockingOverlay(el) {
+        if (isPremiumOverlay(el)) {
+            log('Skipping premium/upsell overlay:', el.className || el.id);
+            return false;
+        }
+        const style = getComputedStyle(el);
+        const isFixed = style.position === 'fixed';
+        const coversViewport =
+            style.top === '0px' &&
+            style.left === '0px' &&
+            style.right === '0px' &&
+            style.bottom === '0px';
+        const highZ = parseInt(style.zIndex) > 999;
+        const hasSize = el.offsetWidth > 100 && el.offsetHeight > 100;
+        return isFixed && (coversViewport || highZ) && hasSize;
+    }
+
+    // ============================================================================
+    // MAIN ATTEMPT (v2.1.4 flow: cookie consent -> age gate -> overlay cleanup)
+    // ============================================================================
+
+    async function attempt() {
+        // 1. Handle cookie consent first (may not exist yet on some sites)
+        clickCookieConsent();
+
+        // 2. Then handle age gate
+        if (clickAgeGateButton()) {
+            // After clicking age gate, wait for DOM to update and check for cookie consent again
+            // Some sites (XNXX, Pornhub) show cookie consent AFTER age gate is dismissed
+            await sleep(100); // brief pause for DOM transition
+            clickCookieConsent(); // re-check for cookie consent that may appear after age gate
+            await sleep(CONFIG.timings.overlayCleanupDelay);
+            removeOverlays();
+            return true;
+        }
+
+        // 3. Fallback: Press Escape to dismiss stuck modals (Pornhub video pages)
+        if (CURRENT_DOMAIN === 'pornhub.com' && CONFIG.pageType === 'video') {
+            try {
+                document.dispatchEvent(
+                    new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })
+                );
+                log('Dispatched Escape key for stuck modal');
+                await sleep(50);
+                if (clickAgeGateButton()) {
+                    await sleep(100);
+                    clickCookieConsent(); // re-check after Escape too
+                    await sleep(CONFIG.timings.overlayCleanupDelay);
+                    removeOverlays();
+                    return true;
+                }
+            } catch {}
+        }
+        return false;
+    }
+
+    // ============================================================================
+    // SPA NAVIGATION HANDLING
+    // ============================================================================
+
+    function observeSPANavigation() {
+        let lastUrl = location.href;
+
+        // MutationObserver for DOM changes (covers SPA content loads)
+        const observer = new MutationObserver(() => {
+            if (location.href !== lastUrl) {
+                lastUrl = location.href;
+                log('URL changed via MutationObserver:', lastUrl);
+                setTimeout(attempt, CONFIG.timings.spaNavDelay);
+            }
+        });
+        observer.observe(document, { subtree: true, childList: true });
+
+        // History API overrides (pushState, replaceState)
+        ['pushState', 'replaceState'].forEach((fn) => {
+            const orig = history[fn];
+            history[fn] = function (...args) {
+                orig.apply(this, args);
+                log('History API:', fn);
+                setTimeout(attempt, CONFIG.timings.spaNavDelay);
+            };
+        });
+
+        // popstate for back/forward navigation
+        window.addEventListener('popstate', () => {
+            log('popstate event');
+            setTimeout(attempt, CONFIG.timings.spaNavDelay);
+        });
+
+        return () => observer.disconnect();
+    }
+
+    // ============================================================================
+    // FAST PATH: MutationObserver at document-start (v2.1.4 ultra-fast)
+    // ============================================================================
+
+    let fastPathActive = true;
+    let fastPathObserver = null;
+    let fastPathMicrotaskScheduled = false;
+    let fastPathInterval = null;
+
+    function scheduleFastPathAttempt() {
+        if (!fastPathActive || fastPathMicrotaskScheduled) return;
+        fastPathMicrotaskScheduled = true;
+        queueMicrotask(() => {
+            fastPathMicrotaskScheduled = false;
+            if (!fastPathActive) return;
+            if (attempt()) {
+                fastPathActive = false;
+                if (fastPathObserver) {
+                    fastPathObserver.disconnect();
+                    fastPathObserver = null;
+                }
+                if (fastPathInterval) {
+                    clearInterval(fastPathInterval);
+                    fastPathInterval = null;
+                }
+            }
+        });
+    }
+
+    function startFastPath() {
+        // Immediate synchronous check at document-start
+        if (attempt()) {
+            fastPathActive = false;
+            return;
+        }
+
+        // MutationObserver on documentElement for earliest possible detection
+        fastPathObserver = new MutationObserver(() => {
+            scheduleFastPathAttempt();
+        });
+        fastPathObserver.observe(document.documentElement, {
+            childList: true,
+            subtree: true,
+        });
+
+        // Also schedule periodic microtask retries for ultra-fast response
+        fastPathInterval = setInterval(() => {
+            if (!fastPathActive) {
+                clearInterval(fastPathInterval);
+                fastPathInterval = null;
+                return;
+            }
+            scheduleFastPathAttempt();
+        }, 10); // Check every 10ms via microtasks
+    }
+
+    // ============================================================================
+    // ENTRY POINT
+    // ============================================================================
+
+    async function init() {
+        log('Initializing for:', CURRENT_DOMAIN);
+
+        // Stop fast path if it's still running
+        if (fastPathObserver) {
+            fastPathObserver.disconnect();
+            fastPathObserver = null;
+        }
+        if (fastPathInterval) {
+            clearInterval(fastPathInterval);
+            fastPathInterval = null;
+        }
+        fastPathActive = false;
+
+        // Initial delay for heavy mobile pages
+        if (CONFIG.timings.initialDelay > 0) {
+            await sleep(CONFIG.timings.initialDelay);
+        }
+
+        if (await attempt()) return;
+
+        let retries = CONFIG.timings.maxRetries;
+        const interval = setInterval(async () => {
+            if (await attempt()) {
+                clearInterval(interval);
+                return;
+            }
+            if (--retries <= 0) {
+                clearInterval(interval);
+                log('Max retries reached, giving up');
+            }
+        }, CONFIG.timings.retryInterval);
+
+        observeSPANavigation();
+    }
+
+    // Run at document-start
+    // Pre-set Pornhub cookies immediately at document-start (before any DOM interaction)
+    if (CURRENT_DOMAIN === 'pornhub.com') {
+        preSetPornhubCookies();
+    }
+    // Pre-set XNXX cookies for video pages
+    if (CURRENT_DOMAIN === 'xnxx.com') {
+        preSetXnxxCookies();
+    }
+
+    if (document.readyState === 'loading') {
+        startFastPath();
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();

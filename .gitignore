@@ -1,9 +1,9 @@
 # Dependencies
 node_modules/
 
-# Build artifacts
-dist/
-versions/
+# Build artifacts (tracked for Tampermonkey auto-update)
+# dist/
+# versions/
 
 # Test artifacts
 test-results/
