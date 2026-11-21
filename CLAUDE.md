@@ -3,7 +3,7 @@
 **Project**: `universal-age-gate-bypass`  
 **Canonical Name**: `universal-age-gate-bypass`  
 **Userscript File**: `src/universal-age-gate-bypass.user.js` (built to `dist/` and `versions/`)  
-**GitHub Repo**: `parhamghahremani/universal-age-gate-bypass` (Private)  
+**GitHub Repo**: `parhamghahremani/universal-age-gate-bypass` (Public)  
 **Current Version**: 2.2.1  
 **Target**: Firefox Desktop + Firefox Android  
 **Sites**: `pornhub.com`, `xnxx.com`, `xvideos.com`, `xhamster.com`
@@ -103,9 +103,10 @@ npm run version:major  # 2.2.1 → 3.0.0
 
 `build.js` reads `@version` from source, creates:
 - `versions/universal-age-gate-bypass-v{version}.user.js` — versioned archive
-- `dist/universal-age-gate-bypass.user.js` — latest with updated `@downloadURL`/`@updateURL` pointing to versioned file
+- `dist/universal-age-gate-bypass.user.js` — latest with updated `@downloadURL`/`@updateURL` pointing to stable `dist/` file (raw.githubusercontent.com)
 
 **Never edit `dist/` or `versions/` directly** — they are build outputs.
+**Note**: `dist/` and `versions/` are now tracked in git (`.gitignore` commented) for Tampermonkey auto-update compatibility.
 
 ---
 
@@ -185,19 +186,20 @@ Pre-change snapshot before each logical batch:
 1. **Never modify sibling projects** — Only touch `universal-age-gate-bypass/`
 2. **Source of truth** = `src/universal-age-gate-bypass.user.js`
 3. **Version consistency**: `@version` in source = `package.json` = Git tag = CHANGELOG
-4. **Private GitHub repo** — Never make public without explicit permission
+4. **Public GitHub repo** — Public for Tampermonkey auto-update compatibility (changed 2026-11-20)
 5. **Sync only after approval** — Push after manual test + user go-ahead
 6. **Persian communication** — All user messages in Persian; code/docs in English
 7. **No automated test suites** — Playwright for research only; user tests manually
 
 ---
 
-## Current Status (2026-11-18)
+## Current Status (2026-11-21)
 
 - **Version**: 2.2.1 (stable)
-- **Git**: Initialized, committed (1337ca5), tag v2.2.1 pushed
-- **GitHub**: Private repo created at `parhamghahremani/universal-age-gate-bypass`, pushed
-- **Documentation**: Complete (13 docs files + CLAUDE.md + PROJECT_STATUS.md)
-- **Backups**: First snapshot complete (ZIP + git bundle, SHA256 verified)
-- **Tests**: 48/48 Playwright tests passed (4 browser configs)
-- **Next**: ✅ All setup complete
+- **Git**: Commit bbe4fdd — dist/ and versions/ now tracked for Tampermonkey auto-update
+- **GitHub**: Public repo at `parhamghahremani/universal-age-gate-bypass` (changed 2026-11-20)
+- **Build**: `dist/` contains stable `@downloadURL`/`@updateURL` pointing to `dist/universal-age-gate-bypass.user.js`
+- **Documentation**: 13 docs files + CLAUDE.md + PROJECT_STATUS.md (this file updated)
+- **Backups**: Full snapshot + git bundle in backups/ (SHA256 verified)
+- **Tests**: Playwright tests have proxy/network issues (NS_ERROR_PROXY_CONNECTION_REFUSED) — not code bugs
+- **Next**: Documentation sync complete, ready for manual verification
