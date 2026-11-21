@@ -18,7 +18,7 @@ const versionsDir = path.join(__dirname, 'versions');
 const distDir = path.join(__dirname, 'dist');
 const REPO = 'universal-age-gate-bypass';
 const OWNER = 'parhamghahremani';
-const BRANCH = 'master';
+const BRANCH = 'main';
 
 if (!fs.existsSync(versionsDir)) fs.mkdirSync(versionsDir, { recursive: true });
 if (!fs.existsSync(distDir)) fs.mkdirSync(distDir, { recursive: true });
